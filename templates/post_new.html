@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}New Post {% endblock title %}
+
+{% block content %}
+
+<h1>Create Posts</h1>
+<form method="POST">
+    {% csrf_token %}
+    <!-- prevents attacks (Cross site request forgery)-->
+    {{ form.as_p }}
+    <!-- given from create view (as_p dumps all fields as <p> tags)-->
+    <input type="submit" class="btn btn-success">
+</form>
+
+{% endblock content %}
